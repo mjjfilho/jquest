@@ -13,6 +13,9 @@
 		C599B5BB23D7815D00CF37D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C599B5B923D7815D00CF37D5 /* Main.storyboard */; };
 		C599B5BD23D7815F00CF37D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C599B5BC23D7815F00CF37D5 /* Assets.xcassets */; };
 		C599B5C023D7815F00CF37D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C599B5BE23D7815F00CF37D5 /* LaunchScreen.storyboard */; };
+		C5DF87B723D8B8BC00994DB6 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF87B623D8B8BC00994DB6 /* Scene.swift */; };
+		C5DF87B923D8C6B900994DB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF87B823D8C6B900994DB6 /* Model.swift */; };
+		C5ED9F4C23DA1ED60066F829 /* Assertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED9F4B23DA1ED60066F829 /* Assertion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		C599B5BC23D7815F00CF37D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C599B5BF23D7815F00CF37D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C599B5C123D7815F00CF37D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5DF87B623D8B8BC00994DB6 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		C5DF87B823D8C6B900994DB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		C5ED9F4B23DA1ED60066F829 /* Assertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assertion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		C599B5B223D7815D00CF37D5 /* JQuest */ = {
 			isa = PBXGroup;
 			children = (
+				C5DF87B523D8B83100994DB6 /* Model */,
+				C5DF87B423D8B82400994DB6 /* View */,
+				C5DF87B323D8B80700994DB6 /* Controller */,
 				C599B5B323D7815D00CF37D5 /* AppDelegate.swift */,
 				C599B5B523D7815D00CF37D5 /* SceneDelegate.swift */,
-				C599B5B723D7815D00CF37D5 /* ViewController.swift */,
-				C599B5B923D7815D00CF37D5 /* Main.storyboard */,
 				C599B5BC23D7815F00CF37D5 /* Assets.xcassets */,
 				C599B5BE23D7815F00CF37D5 /* LaunchScreen.storyboard */,
 				C599B5C123D7815F00CF37D5 /* Info.plist */,
 			);
 			path = JQuest;
+			sourceTree = "<group>";
+		};
+		C5DF87B323D8B80700994DB6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C599B5B723D7815D00CF37D5 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C5DF87B423D8B82400994DB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C599B5B923D7815D00CF37D5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C5DF87B523D8B83100994DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C5DF87B623D8B8BC00994DB6 /* Scene.swift */,
+				C5DF87B823D8C6B900994DB6 /* Model.swift */,
+				C5ED9F4B23DA1ED60066F829 /* Assertion.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5DF87B923D8C6B900994DB6 /* Model.swift in Sources */,
+				C5ED9F4C23DA1ED60066F829 /* Assertion.swift in Sources */,
 				C599B5B823D7815D00CF37D5 /* ViewController.swift in Sources */,
+				C5DF87B723D8B8BC00994DB6 /* Scene.swift in Sources */,
 				C599B5B423D7815D00CF37D5 /* AppDelegate.swift in Sources */,
 				C599B5B623D7815D00CF37D5 /* SceneDelegate.swift in Sources */,
 			);
@@ -285,6 +321,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79MPWT3R7J;
 				INFOPLIST_FILE = JQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 79MPWT3R7J;
 				INFOPLIST_FILE = JQuest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
