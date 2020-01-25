@@ -103,7 +103,7 @@ class ViewController: UIViewController {
             changeButton()
             
         } else if currentState == .questioning{
-            checkChanges(Button.relevance)
+            runDialog(.relevance)
             changeBack()
             updateText()
         }
@@ -178,7 +178,7 @@ class ViewController: UIViewController {
     }
     func createNewAssertion(_ Id:Int) -> Assertion {
         print("frase adicionada na sentença")
-        return Assertion(phrase: "Está frase foi adicionada", howSo: ["",""], proveIt: ["",""], relevance: ["",""])
+        return Assertion(phrase: "Esta frase foi adicionada", howSo: ["",""], proveIt: ["",""], relevance: ["",""])
     }
     func positioningAssertion() {
         assertions[actualDialog].state = .none
