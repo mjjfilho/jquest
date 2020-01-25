@@ -17,51 +17,5 @@ class Model {
     
     private init () {
         
-        var myAssertions:[Assertion] = [
-            Assertion(
-                phrase: "Esta frase deve ser alterada pelo howSo",
-                uptadedPhrase: String("Esta frase já foi alterada."),
-                howSo: ["1 dialogo do HowSo da 1 assertion","2 dialogo do HowSo da primeira assertion"],
-                proveIt: ["1 dialogo do proveIt"],
-                relevance: ["Dialogo"],
-                state: Assertion.state.editable,
-                trigger: Assertion.trigger.howSo),
-            
-            Assertion(
-                id: 1,
-                phrase: "Esta frase deve criar uma nova frase pelo proveIt",
-                uptadedPhrase: nil ,
-                howSo: ["1 dialogo do HowSo da 2 assertion","2 dialogo do HowSo da 2 assertio"],
-                proveIt: ["Dialogo", "Dialogo"],
-                relevance: ["Dialogo"],
-                state: Assertion.state.creator,
-                trigger: Assertion.trigger.proveIt),
-            
-            Assertion(
-                phrase: "Esta frase deve ser removida pelo relevance",
-                uptadedPhrase: nil,
-                howSo: ["dialogo","dialogo"],
-                proveIt: ["Dialogo", "Dialogo"],
-                relevance: ["Dialogo"],
-                state: Assertion.state.removable,
-                trigger: Assertion.trigger.relevance),
-            
-            Assertion(
-                phrase: "Esta frase deve permanecer inalterada",
-                uptadedPhrase: nil,
-                howSo: ["dialogo","dialogo"],
-                proveIt: ["Dialogo", "Dialogo"],
-                relevance: ["Dialogo"],
-                state: nil,
-                trigger: Assertion.trigger.none),
-            
-        ]
-        
-        
-        scenes = [Scene(
-            theme: "COMPRE!!",
-            character: "Vendendor",
-            assertions: myAssertions,
-            background: nil)]
     }
 }

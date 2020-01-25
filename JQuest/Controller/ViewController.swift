@@ -28,12 +28,13 @@ class ViewController: UIViewController {
     var lastDialog: Int = 0
     var auxStringArray: [String] = []
     var actualButton: Button = .none
+    var currentState = State.normal
     
     enum State{
         case normal
         case questioning
         case challenging
-        case Dialoging
+        case dialoging
     }
     enum Button{
         case howSo
@@ -42,17 +43,59 @@ class ViewController: UIViewController {
         case none
     }
     
-    var currentState = State.normal
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        actualScene =  Model.shared.scenes[0]
+        actualScene =  Scene(
+        theme: "COMPRE!!",
+        character: "Vendendor",
+        assertions: [
+            
+            Assertion(
+                phrase: "Esta frase deve ser alterada pelo howSo",
+                uptadedPhrase: String("Esta frase já foi alterada."),
+                howSo: ["1 dialogo do HowSo da 1 assertion","2 dialogo do HowSo da primeira assertion"],
+                proveIt: ["1 dialogo do proveIt"],
+                relevance: ["Dialogo"],
+                state: Assertion.state.editable,
+                trigger: Assertion.trigger.howSo),
+            
+            Assertion(
+                id: 1,
+                phrase: "Esta frase deve criar uma nova frase pelo proveIt",
+                uptadedPhrase: nil ,
+                howSo: ["1 dialogo do HowSo da 2 assertion","2 dialogo do HowSo da 2 assertio"],
+                proveIt: ["Dialogo", "Dialogo"],
+                relevance: ["Dialogo"],
+                state: Assertion.state.creator,
+                trigger: Assertion.trigger.proveIt),
+            
+            Assertion(
+                phrase: "Esta frase deve ser removida pelo relevance",
+                uptadedPhrase: nil,
+                howSo: ["dialogo","dialogo"],
+                proveIt: ["Dialogo", "Dialogo"],
+                relevance: ["Dialogo"],
+                state: Assertion.state.removable,
+                trigger: Assertion.trigger.relevance),
+            
+            Assertion(
+                phrase: "Esta frase deve permanecer inalterada",
+                uptadedPhrase: nil,
+                howSo: ["dialogo","dialogo"],
+                proveIt: ["Dialogo", "Dialogo"],
+                relevance: ["Dialogo"],
+                state: nil,
+                trigger: Assertion.trigger.none),
+            
+        ],
+        
+        background: nil)
         assertions = actualScene.assertions
         themeLabel.text = "Tema: \"\(actualScene.theme)\""
         characterLabel.text = actualScene.character
         
         for assertion in assertions {
-                sentences.append(assertion.phrase)
+            sentences.append(assertion.phrase)
         }
         
         dialogLabel.text = sentences[actualDialog]
@@ -67,33 +110,34 @@ class ViewController: UIViewController {
             }
             
         } else if currentState == .questioning {
-            currentState = .Dialoging
+            currentState = .dialoging
+            changeBack()
             runDialog(.howSo)
             updateText()
         }
     }
     
     @IBAction func fwdButton(_ sender: UIButton) {
-        if currentState == .normal{
-            
+        switch currentState {
+        case .normal:
             if actualDialog < sentences.count-1  {
                 actualDialog += 1
                 updateText()
             }
-            
-        } else if currentState == .questioning {
-            currentState = .Dialoging
+        case .questioning:
+            changeBack()
             runDialog(Button.proveIt)
             updateText()
             
-        } else if currentState == .Dialoging{
-            if actualDialog < sentences.count-1{
+        case .dialoging:
+            if actualDialog == sentences.count-1{
+                stopDialog()
+            } else if actualDialog < sentences.count-1 {
                 actualDialog += 1
                 updateText()
-            } else if actualDialog == sentences.count-1 {
-                stopDialog()
             }
-            
+        default:
+            print("Error")
         }
     }
     
@@ -104,7 +148,6 @@ class ViewController: UIViewController {
             
         } else if currentState == .questioning{
             runDialog(.relevance)
-            changeBack()
             updateText()
         }
     }
@@ -118,11 +161,9 @@ class ViewController: UIViewController {
     }
     
     func updateText() {
-        
         themeLabel.text = "Tema: \"\(actualScene.theme)\""
         characterLabel.text = actualScene.character
         dialogLabel.text = sentences[actualDialog]
-        
     }
     
     func changeButton() {
@@ -153,13 +194,13 @@ class ViewController: UIViewController {
         case Button.proveIt:
             updateText()
             sentences = assertions[lastDialog].proveIt
-        case .relevance:
+        case Button.relevance:
             updateText()
-            sentences = actualScene.assertions[lastDialog].relevance
+            sentences = assertions[lastDialog].relevance
         default:
             break
         }
-        currentState = .Dialoging
+        currentState = .dialoging
         actionButton0.isHidden = true
         actionButton2.isHidden = true
         actionButton3.isHidden = true
@@ -177,14 +218,18 @@ class ViewController: UIViewController {
         
     }
     func createNewAssertion(_ Id:Int) -> Assertion {
-        print("frase adicionada na sentença")
-        return Assertion(phrase: "Esta frase foi adicionada", howSo: ["",""], proveIt: ["",""], relevance: ["",""])
+        switch Id {
+        case 1:
+            return Assertion(phrase: "Esta frase foi adicionada", howSo: ["",""], proveIt: ["",""], relevance: ["",""])
+        default:
+            return Assertion(phrase: "Esta frase foi adicionada", howSo: ["",""], proveIt: ["",""], relevance: ["",""])
+        }
+        
     }
     func positioningAssertion() {
         assertions[actualDialog].state = .none
         assertions.insert(createNewAssertion(assertions[actualDialog].id!), at: actualDialog)
         sentences.insert(assertions[actualDialog].phrase, at: actualDialog)
-        
     }
     
     func checkChanges(_ sender:Button) {
@@ -234,7 +279,7 @@ class ViewController: UIViewController {
                 positioningAssertion()
                 }
             case .relevance: if sender == Button.relevance{
-               positioningAssertion()
+                positioningAssertion()
                 }
             default:
                 break
