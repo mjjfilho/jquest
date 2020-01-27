@@ -13,6 +13,12 @@
 		C599B5BB23D7815D00CF37D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C599B5B923D7815D00CF37D5 /* Main.storyboard */; };
 		C599B5BD23D7815F00CF37D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C599B5BC23D7815F00CF37D5 /* Assets.xcassets */; };
 		C599B5C023D7815F00CF37D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C599B5BE23D7815F00CF37D5 /* LaunchScreen.storyboard */; };
+		C5A4BE0B23DD7D5A00F178F0 /* ChallengePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A4BE0A23DD7D5A00F178F0 /* ChallengePopUpViewController.swift */; };
+		C5A4BE0E23DD818F00F178F0 /* PopViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C5A4BE0C23DD818F00F178F0 /* PopViewController.storyboard */; };
+		C5A4BE1123DE17A400F178F0 /* ChallengeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A4BE0F23DE17A300F178F0 /* ChallengeTableViewCell.swift */; };
+		C5A4BE1223DE17A400F178F0 /* challengeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C5A4BE1023DE17A300F178F0 /* challengeTableViewCell.xib */; };
+		C5A4BE1423DE84C000F178F0 /* NotificationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A4BE1323DE84C000F178F0 /* NotificationExtension.swift */; };
+		C5A4BE1623DE99D300F178F0 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A4BE1523DE99D300F178F0 /* Answer.swift */; };
 		C5DF87B723D8B8BC00994DB6 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF87B623D8B8BC00994DB6 /* Scene.swift */; };
 		C5DF87B923D8C6B900994DB6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5DF87B823D8C6B900994DB6 /* Model.swift */; };
 		C5ED9F4C23DA1ED60066F829 /* Assertion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5ED9F4B23DA1ED60066F829 /* Assertion.swift */; };
@@ -27,6 +33,12 @@
 		C599B5BC23D7815F00CF37D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C599B5BF23D7815F00CF37D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C599B5C123D7815F00CF37D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C5A4BE0A23DD7D5A00F178F0 /* ChallengePopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengePopUpViewController.swift; sourceTree = "<group>"; };
+		C5A4BE0D23DD818F00F178F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = JQuest/View/Base.lproj/PopViewController.storyboard; sourceTree = "<group>"; };
+		C5A4BE0F23DE17A300F178F0 /* ChallengeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeTableViewCell.swift; sourceTree = "<group>"; };
+		C5A4BE1023DE17A300F178F0 /* challengeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = challengeTableViewCell.xib; sourceTree = "<group>"; };
+		C5A4BE1323DE84C000F178F0 /* NotificationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtension.swift; sourceTree = "<group>"; };
+		C5A4BE1523DE99D300F178F0 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		C5DF87B623D8B8BC00994DB6 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		C5DF87B823D8C6B900994DB6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		C5ED9F4B23DA1ED60066F829 /* Assertion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assertion.swift; sourceTree = "<group>"; };
@@ -65,8 +77,8 @@
 				C5DF87B523D8B83100994DB6 /* Model */,
 				C5DF87B423D8B82400994DB6 /* View */,
 				C5DF87B323D8B80700994DB6 /* Controller */,
-				C599B5B323D7815D00CF37D5 /* AppDelegate.swift */,
 				C599B5B523D7815D00CF37D5 /* SceneDelegate.swift */,
+				C599B5B323D7815D00CF37D5 /* AppDelegate.swift */,
 				C599B5BC23D7815F00CF37D5 /* Assets.xcassets */,
 				C599B5BE23D7815F00CF37D5 /* LaunchScreen.storyboard */,
 				C599B5C123D7815F00CF37D5 /* Info.plist */,
@@ -78,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				C599B5B723D7815D00CF37D5 /* ViewController.swift */,
+				C5A4BE0A23DD7D5A00F178F0 /* ChallengePopUpViewController.swift */,
+				C5A4BE0F23DE17A300F178F0 /* ChallengeTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				C599B5B923D7815D00CF37D5 /* Main.storyboard */,
+				C5A4BE0C23DD818F00F178F0 /* PopViewController.storyboard */,
+				C5A4BE1023DE17A300F178F0 /* challengeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +112,8 @@
 				C5DF87B623D8B8BC00994DB6 /* Scene.swift */,
 				C5DF87B823D8C6B900994DB6 /* Model.swift */,
 				C5ED9F4B23DA1ED60066F829 /* Assertion.swift */,
+				C5A4BE1523DE99D300F178F0 /* Answer.swift */,
+				C5A4BE1323DE84C000F178F0 /* NotificationExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,7 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C599B5C023D7815F00CF37D5 /* LaunchScreen.storyboard in Resources */,
+				C5A4BE0E23DD818F00F178F0 /* PopViewController.storyboard in Resources */,
 				C599B5BD23D7815F00CF37D5 /* Assets.xcassets in Resources */,
+				C5A4BE1223DE17A400F178F0 /* challengeTableViewCell.xib in Resources */,
 				C599B5BB23D7815D00CF37D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,8 +193,12 @@
 			files = (
 				C5DF87B923D8C6B900994DB6 /* Model.swift in Sources */,
 				C5ED9F4C23DA1ED60066F829 /* Assertion.swift in Sources */,
+				C5A4BE0B23DD7D5A00F178F0 /* ChallengePopUpViewController.swift in Sources */,
+				C5A4BE1423DE84C000F178F0 /* NotificationExtension.swift in Sources */,
 				C599B5B823D7815D00CF37D5 /* ViewController.swift in Sources */,
 				C5DF87B723D8B8BC00994DB6 /* Scene.swift in Sources */,
+				C5A4BE1123DE17A400F178F0 /* ChallengeTableViewCell.swift in Sources */,
+				C5A4BE1623DE99D300F178F0 /* Answer.swift in Sources */,
 				C599B5B423D7815D00CF37D5 /* AppDelegate.swift in Sources */,
 				C599B5B623D7815D00CF37D5 /* SceneDelegate.swift in Sources */,
 			);
@@ -197,6 +221,14 @@
 				C599B5BF23D7815F00CF37D5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C5A4BE0C23DD818F00F178F0 /* PopViewController.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C5A4BE0D23DD818F00F178F0 /* Base */,
+			);
+			name = PopViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

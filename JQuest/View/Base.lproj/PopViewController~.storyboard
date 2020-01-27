@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="BYZ-38-t0r" customClass="ViewController" customModule="JQuest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JQuest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
                                 <state key="normal" title="Challenge"/>
                                 <connections>
                                     <action selector="challengeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b4z-or-ROQ"/>
-                                    <segue destination="jrN-Iu-bj6" kind="presentation" identifier="challengePopUpViewController" id="lsP-qS-ANl"/>
+                                    <segue destination="Rok-zr-fw5" kind="presentation" id="w8e-ip-zTx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -113,13 +113,57 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
-        <!--PopViewController-->
-        <scene sceneID="HKt-XB-RkI">
+        <!--Challenge Pop Up View Controller-->
+        <scene sceneID="JD6-1U-mz8">
             <objects>
-                <viewControllerPlaceholder storyboardName="PopViewController" id="jrN-Iu-bj6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5Ub-2x-wQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="Rok-zr-fw5" customClass="ChallengePopUpViewController" customModule="JQuest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WZa-Si-Le1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="042-l4-sTC">
+                                <rect key="frame" x="67" y="265.5" width="280" height="277"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ir-sa-GTZ">
+                                        <rect key="frame" x="8" y="8" width="79.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3B7-Un-Kew">
+                                        <rect key="frame" x="211" y="239" width="52" height="30"/>
+                                        <state key="normal" title="dismiss"/>
+                                        <connections>
+                                            <action selector="dismissPopup:" destination="Rok-zr-fw5" eventType="touchUpInside" id="8vy-DL-VUr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="5ir-sa-GTZ" firstAttribute="leading" secondItem="042-l4-sTC" secondAttribute="leading" constant="8" id="4zR-Kn-IIO"/>
+                                    <constraint firstItem="5ir-sa-GTZ" firstAttribute="top" secondItem="042-l4-sTC" secondAttribute="top" constant="8" id="LUz-70-ZwG"/>
+                                    <constraint firstAttribute="trailing" secondItem="3B7-Un-Kew" secondAttribute="trailing" constant="17" id="Pem-TA-tlZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="3B7-Un-Kew" secondAttribute="bottom" constant="8" id="jw9-LS-SgN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="042-l4-sTC" firstAttribute="centerX" secondItem="VpH-pl-kJ2" secondAttribute="centerX" id="6bJ-Uz-I5P"/>
+                            <constraint firstItem="042-l4-sTC" firstAttribute="centerY" secondItem="VpH-pl-kJ2" secondAttribute="centerY" id="CSy-6U-5un"/>
+                            <constraint firstItem="042-l4-sTC" firstAttribute="width" secondItem="VpH-pl-kJ2" secondAttribute="width" multiplier="0.676329" id="CmL-zR-seL"/>
+                            <constraint firstItem="042-l4-sTC" firstAttribute="height" secondItem="VpH-pl-kJ2" secondAttribute="height" multiplier="0.342298" id="YlM-ui-SHL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VpH-pl-kJ2"/>
+                    </view>
+                    <connections>
+                        <outlet property="button" destination="3B7-Un-Kew" id="aKi-yD-6Cp"/>
+                        <outlet property="statement" destination="5ir-sa-GTZ" id="pak-z5-idH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zFW-0U-n3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736" y="127"/>
+            <point key="canvasLocation" x="960.86956521739137" y="145.98214285714286"/>
         </scene>
     </scenes>
 </document>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="77" id="KGk-i7-Jjw" customClass="ChallengeTableViewCell" customModule="JQuest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Baba is you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m48-Pk-7K0">
+                        <rect key="frame" x="10" y="6" width="88" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is an description phrase to elucidate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yd-TI-hm7">
+                        <rect key="frame" x="10" y="28" width="365" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="3Yd-TI-hm7" secondAttribute="trailing" id="E7L-I8-74f"/>
+                    <constraint firstItem="m48-Pk-7K0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="GVD-pW-IN9"/>
+                    <constraint firstItem="3Yd-TI-hm7" firstAttribute="leading" secondItem="m48-Pk-7K0" secondAttribute="trailing" constant="-88" id="P5o-Oz-qCL"/>
+                    <constraint firstItem="3Yd-TI-hm7" firstAttribute="firstBaseline" secondItem="m48-Pk-7K0" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="dpE-tg-SIX"/>
+                    <constraint firstItem="3Yd-TI-hm7" firstAttribute="leading" secondItem="m48-Pk-7K0" secondAttribute="leading" id="mVD-J7-sjV"/>
+                    <constraint firstItem="m48-Pk-7K0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="oRd-K4-ieZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionChallengeLabel" destination="3Yd-TI-hm7" id="Ak9-oT-hPI"/>
+                <outlet property="statementChallengeLabel" destination="m48-Pk-7K0" id="q0Z-3c-7af"/>
+            </connections>
+            <point key="canvasLocation" x="189.13043478260872" y="134.26339285714286"/>
+        </tableViewCell>
+    </objects>
+</document>

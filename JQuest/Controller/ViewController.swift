@@ -29,14 +29,17 @@ class ViewController: UIViewController {
     var auxStringArray: [String] = []
     var actualButton: Button = .none
     var currentState = State.normal
+    var challengeSelected = 0
     
-    enum State{
+    enum State {
+        
         case normal
         case questioning
         case challenging
         case dialoging
     }
-    enum Button{
+    enum Button {
+        
         case howSo
         case proveIt
         case relevance
@@ -45,6 +48,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(forName: .saveChallenge, object: nil, queue: nil) {
+            (notification) in
+            let challengeVC = notification.object as! ChallengePopUpViewController
+            let challengeSelected: Int = challengeVC.challengeSelected
+            self.challengeAccepted(contradiction: challengeVC.statments[challengeSelected], finding: self.sentences[self.actualDialog],scene: self.actualScene!)
+            
+            
+            }
+        
         actualScene =  Scene(
         theme: "COMPRE!!",
         character: "Vendendor",
@@ -89,7 +102,9 @@ class ViewController: UIViewController {
             
         ],
         
-        background: nil)
+        background: nil,
+        answer: Answer("",
+                       ""))
         assertions = actualScene.assertions
         themeLabel.text = "Tema: \"\(actualScene.theme)\""
         characterLabel.text = actualScene.character
@@ -130,7 +145,7 @@ class ViewController: UIViewController {
             updateText()
             
         case .dialoging:
-            if actualDialog == sentences.count-1{
+            if actualDialog == sentences.count-1 {
                 stopDialog()
             } else if actualDialog < sentences.count-1 {
                 actualDialog += 1
@@ -146,7 +161,7 @@ class ViewController: UIViewController {
         if currentState == .normal {
             changeButton()
             
-        } else if currentState == .questioning{
+        } else if currentState == .questioning {
             runDialog(.relevance)
             updateText()
         }
@@ -155,11 +170,16 @@ class ViewController: UIViewController {
     @IBAction func challengeButton(_ sender: UIButton) {
         
         if currentState == .normal {
+            
         } else if currentState == .questioning  {
             changeBack()
         }
     }
-    
+    func challengeAccepted(contradiction: String, finding: String, scene: Scene ) {
+        if contradiction == scene.answer.contradiction && finding ==  scene.answer.finding {
+            print("game over")
+        }
+    }
     func updateText() {
         themeLabel.text = "Tema: \"\(actualScene.theme)\""
         characterLabel.text = actualScene.character
@@ -272,13 +292,13 @@ class ViewController: UIViewController {
             
         case .creator:
             switch assertions[actualDialog].trigger {
-            case .howSo: if sender == Button.howSo{
+            case .howSo: if sender == Button.howSo {
                 positioningAssertion()
                 }
-            case .proveIt: if sender == Button.proveIt{
+            case .proveIt: if sender == Button.proveIt {
                 positioningAssertion()
                 }
-            case .relevance: if sender == Button.relevance{
+            case .relevance: if sender == Button.relevance {
                 positioningAssertion()
                 }
             default:
@@ -290,5 +310,11 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "challengePopUpViewController" {
+            let popup = segue.destination as! ChallengePopUpViewController
+            popup.actualDialog = actualDialog
+        }
+    }
 }
 

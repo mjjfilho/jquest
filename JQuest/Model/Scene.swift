@@ -16,16 +16,19 @@ class Scene {
     var character : String
     var assertions :  [Assertion]
     var background : UIImage?
+    var answer : Answer
 
     init (theme: String,
           character: String,
           assertions: [Assertion],
-          background: UIImage?) {
+          background: UIImage?,
+          answer: Answer) {
         
         self.theme = theme
         self.character = character
         self.assertions = assertions
         self.background = background
+        self.answer = answer
     }
 
     
