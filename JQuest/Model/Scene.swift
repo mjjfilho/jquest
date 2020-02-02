@@ -13,22 +13,25 @@ import UIKit
 class Scene {
     
     var theme : String
-    var character : String
+    var character : [String]
     var assertions :  [Assertion]
     var background : UIImage?
     var answer : Answer
+    var dialog : [String]
 
     init (theme: String,
-          character: String,
+          character: [String],
           assertions: [Assertion],
           background: UIImage?,
-          answer: Answer) {
+          answer: Answer,
+          dialog: [String]) {
         
         self.theme = theme
         self.character = character
         self.assertions = assertions
         self.background = background
         self.answer = answer
+        self.dialog = dialog
     }
 
     

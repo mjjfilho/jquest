@@ -14,6 +14,7 @@ class Assertion {
         case removable
         case editable
         case creator
+        case cutscener
         
     }
     
@@ -27,67 +28,45 @@ class Assertion {
     
     var id: Int?
     var phrase:String
-    var uptadedPhrase: String?
     var howSo:[String]
+    var howCharacter : [Int]
     var proveIt:[String]
+    var proveCharacter: [Int]
     var relevance:[String]
+    var relevCharacter: [Int]
     var state: state?
     var trigger: trigger?
-    var seed: Int?
+    var loop: [String]?
+    //loop serve tanto pra quando, o Current dialog acabar. Tanto quanto para os cutscenes,
+    var loopCharacter: [Int]
     
-    init(
-        //Construtor para frase simples
-        phrase: String,
-        howSo: [String],
-        proveIt: [String],
-        relevance: [String]) {
-        
-        self.id = nil
-        self.phrase = phrase
-        self.howSo = howSo
-        self.proveIt = proveIt
-        self.relevance = relevance
-        self.state = .removable
-        self.trigger = Assertion.trigger.none
-        
-    }
+
     //Frase CRIADORA
     init(id: Int,
          phrase: String,
-         uptadedPhrase: String?,
          howSo: [String],
          proveIt: [String],
          relevance: [String],
          state: state?,
-         trigger: trigger?) {
+         trigger: trigger?,
+         howCharacter : [Int],
+         proveCharacter: [Int],
+         relevCharacter: [Int],
+         Loop: [String]?,
+         loopCharacter: [Int]) {
         
         self.id = id
         self.phrase = phrase
-        self.uptadedPhrase = uptadedPhrase
         self.howSo = howSo
         self.proveIt = proveIt
         self.relevance = relevance
         self.state = state
         self.trigger = trigger
-        
-    }
-    //Frase Dinamica
-    init(phrase: String,
-         uptadedPhrase: String?,
-         howSo: [String],
-         proveIt: [String],
-         relevance: [String],
-         state: state?,
-         trigger: trigger?) {
-        
-        self.id = nil
-        self.phrase = phrase
-        self.uptadedPhrase = uptadedPhrase
-        self.howSo = howSo
-        self.proveIt = proveIt
-        self.relevance = relevance
-        self.state = state
-        self.trigger = trigger
+        self.howCharacter = howCharacter
+        self.proveCharacter = proveCharacter
+        self.relevCharacter = relevCharacter
+        self.loop = Loop
+        self.loopCharacter = loopCharacter
         
     }
 }
